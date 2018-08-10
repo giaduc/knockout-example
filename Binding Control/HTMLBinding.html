@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="../knockout.js"></script>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../style/main.css">
+</head>
+
+<body>
+    <div class="list-group">
+        <div class="list__item">
+            <a href="../MyFirstKOApp.html" class="btn btn--3d btn--warning">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+    </div>
+    <div data-bind="html: details"></div>
+
+
+    <script type="text/javascript">
+        var viewModel = {
+            details: ko.observable() // Initially blank
+        };
+        viewModel.details("<em>For further details, view the report <a href='report.html'>here</a>.</em>"); // HTML content appears
+
+        ko.applyBindings(viewModel);
+    </script>
+
+</body>
+
+</html>

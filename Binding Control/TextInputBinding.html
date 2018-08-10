@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="../knockout.js"></script>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../style/main.css">
+</head>
+
+<body>
+    <div class="list-group">
+        <div class="list__item">
+            <a href="../MyFirstKOApp.html" class="btn btn--3d btn--warning">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+    </div>
+    <p>Login name:
+        <input data-bind="textInput: userName" />
+    </p>
+    <p>Password:
+        <input type="password" data-bind="textInput: userPassword" />
+    </p>
+
+    ViewModel:
+    <pre data-bind="text: ko.toJSON($root, null, 2)"></pre>
+
+    <script>
+        ko.applyBindings({
+            userName: ko.observable(""), // Initially blank
+            userPassword: ko.observable("abc") // Prepopulate
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="../knockout.js"></script>
+    <meta charset="utf-8" />
+    <title>With Biding
+    </title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../style/main.css">
+</head>
+
+<body>
+    <div class="list-group">
+        <div class="list__item">
+            <a href="../MyFirstKOApp.html" class="btn btn--3d btn--warning">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+    </div>
+
+    <h4>First instance, without parameters</h4>
+    <div data-bind='component: "message-editor"'></div>
+
+    <h4>Second instance, passing parameters</h4>
+    <div data-bind='component: {
+    name: "message-editor",
+    params: { initialText: "Hello, world!" }
+}'></div>
+
+
+    <script type="text/javascript">
+        ko.components.register('message-editor', {
+            viewModel: function (params) {
+                this.text = ko.observable(params && params.initialText || '');
+            },
+            template: 'Message: <input data-bind="value: text" /> ' +
+                '(length: <span data-bind="text: text().length"></span>)'
+        });
+
+        ko.applyBindings();
+    </script>
+</body>
+
+</html>
