@@ -18,20 +18,23 @@
             </a>
         </div>
     </div>
-    <p>Login name:
-        <input data-bind="textInput: userName" />
-    </p>
-    <p>Password:
-        <input type="password" data-bind="textInput: userPassword" />
-    </p>
 
-    ViewModel:
-    <pre data-bind="text: ko.toJSON($root, null, 2)"></pre>
+    <div class="container">
+        <p>Login name:
+            <input data-bind="textInput: userName" />
+        </p>
+        <p>Password:
+            <input type="password" data-bind="textInput: userPassword" />
+        </p>
+    
+        ViewModel:
+        <pre data-bind="text: ko.toJSON($root, null, 2)"></pre>
+    </div>
 
     <script>
         ko.applyBindings({
-            userName: ko.observable(""), // Initially blank
-            userPassword: ko.observable("abc") // Prepopulate
+            userName: ko.observable(""),
+            userPassword: ko.observable("abc")
         });
     </script>
 

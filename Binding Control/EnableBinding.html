@@ -18,21 +18,26 @@
             </a>
         </div>
     </div>
-    <p>
-        <input type='checkbox' data-bind="checked: hasCellphone" /> I have a cellphone
-    </p>
-    <p>
-        Your cellphone number:
-        <input type='text' data-bind="value: cellphoneNumber, enabled: hasCellphone" />
-    </p>
 
-    <span data-bind="text:cellphoneNumber"></span>
+    <div class="container">
+        <p>
+            <input type='checkbox' data-bind="checked: hasCellphone" /> I have a cellphone
+        </p>
+        <p>
+            Your cellphone number:
+            <input type='text' data-bind="value: cellphoneNumber, enable: hasCellphone" />
+        </p>
+    
+        <span data-bind="text:cellphoneNumber"></span>
+    </div>
 
     <script type="text/javascript">
         var viewModel = {
             hasCellphone: ko.observable(false),
             cellphoneNumber: "Hello world"
         };
+
+        ko.applyBindings(viewModel);
     </script>
 </body>
 

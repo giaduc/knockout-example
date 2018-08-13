@@ -18,15 +18,22 @@
             </a>
         </div>
     </div>
-    <label>
-        <input type="checkbox" data-bind="checked: displayMessage" /> Display message</label>
 
-    <div data-bind="ifnot: displayMessage">Here is a message. Astonishing.</div>
+    <div class="container">
+        <label>
+            <input type="checkbox" data-bind="checked: displayMessage" /> Display message
+        </label>
+
+        <div data-bind="ifnot: displayMessage">Here is a message. Astonishing.</div>
+    </div>
 
     <script>
-        ko.applyBindings({
-            displayMessage: ko.observable(false)
-        });
+        var viewModel = function() {
+            const self = this;
+            self.displayMessage = ko.observable(false);
+        }
+
+        ko.applyBindings(viewModel);
     </script>
 </body>
 

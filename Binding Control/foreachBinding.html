@@ -18,44 +18,63 @@
             </a>
         </div>
     </div>
-    <h4>People</h4>
 
-    <ul data-bind="foreach: people">
-        <li>
-            Name at position
-            <span data-bind="text: $index"> </span>:
-            <span data-bind="text: name"> </span>
-            <a href="#" data-bind="click: $parent.removePerson">Remove</a>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: people">
+                <tr>
+                    <td data-bind="text: firstName"></td>
+                    <td data-bind="text: lastName"></td>
+                    <td><button class="btn btn--danger" data-bind="click: $parent.removePerson">Remove</button></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <th></th>
+                <th></th>
+                <th><button class="btn btn--success" data-bind="click: addPerson">Add person</button></th>
+            </tfoot>
+        </table>
 
-        </li>
-    </ul>
-
+    </div>
 
     <script type="text/javascript">
         function viewModel() {
-            this.people = ko.observableArray([{
-                    name: 'Bert'
-                },
-                {
-                    name: 'Charles'
-                },
-                {
-                    name: 'Tuan anh'
-                }
-            ])
+            const self = this;
 
-            this.addPeople = function () {
-                this.people.push({
-                    name: "New at " + new Date()
+            self.people = ko.observableArray([{
+                    firstName: 'Bert',
+                    lastName: 'Bertington'
+                },
+                {
+                    firstName: 'Charles',
+                    lastName: 'Charlesforth'
+                },
+                {
+                    firstName: 'Denise',
+                    lastName: 'Dentiste'
+                }
+            ]);
+
+            self.addPerson = function () {
+                self.people.push({
+                    firstName: "First name at " + new Date().getMilliseconds(),
+                    lastName: "Last name at " + new Date().getMilliseconds()
                 })
             }
 
-            this.removePerson = function () {
-                this.people.remove(this);
+            self.removePerson = function () {
+                self.people.remove(this);
             }
         }
 
-        ko.applyBindings(viewModel);
+        ko.applyBindings(new viewModel());
     </script>
 
 </body>

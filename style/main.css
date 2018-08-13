@@ -253,3 +253,7 @@ table {
   padding: 20px;
   text-transform: uppercase;
 }
+
+th, td {
+  padding: 15px;
+}

@@ -29,11 +29,12 @@
 
     <script type="text/javascript">
         var viewModel = function() {
-            this.numberOfClicks = ko.observable(0);
+            const self = this;
+            self.numberOfClicks = ko.observable(0);
     
-            this.incrementClickCounter = function () {
-                var previousCount = this.numberOfClicks();
-                this.numberOfClicks(previousCount + 1);
+            self.incrementClickCounter = function () {
+                const previousCount = this.numberOfClicks();
+                self.numberOfClicks(previousCount + 1);
             }
         }; 
 

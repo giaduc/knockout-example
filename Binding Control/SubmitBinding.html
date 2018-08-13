@@ -18,15 +18,22 @@
             </a>
         </div>
     </div>
-    <form data-bind="submit: doSomething">
-        <input name="name" data-bind="value: name" />
-        <button type="submit">Submit</button>
-    </form>
+
+    <div class="container">
+        <form data-bind="submit: doSomething">
+            <input name="name" data-bind="value: name" />
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
     <script type="text/javascript">
         var viewModel = {
-            doSomething: function (formElement) {}
+            doSomething: function (formElement) {
+                console.log("dosomething");
+            }
         };
+
+        ko.applyBindings(viewModel);
     </script>
 </body>
 
