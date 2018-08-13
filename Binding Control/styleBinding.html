@@ -18,13 +18,16 @@
             </a>
         </div>
     </div>
-    <div data-bind="style: { color: currentProfit() < 0 ? 'red' : 'red' }">
-        Profit Information
+    
+    <div class="container">
+        <div data-bind="style: { color: currentProfit() < 0 ? 'red' : 'blue' }">
+            Profit Information
+        </div>
     </div>
 
     <script type="text/javascript">
         var viewModel = {
-            currentProfit: ko.observable(150000) // Positive value, so initially we don't apply the "profitWarning" class
+            currentProfit: ko.observable(150000)
         };
 
         ko.applyBindings(viewModel);

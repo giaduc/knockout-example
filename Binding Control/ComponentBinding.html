@@ -20,23 +20,24 @@
         </div>
     </div>
 
-    <h4>First instance, without parameters</h4>
-    <div data-bind='component: "message-editor"'></div>
+    <div class="container">
+        <h4>First instance, without parameters</h4>
+        <div data-bind='component: "message-editor"'></div>
 
-    <h4>Second instance, passing parameters</h4>
-    <div data-bind='component: {
-    name: "message-editor",
-    params: { initialText: "Hello, world!" }
-}'></div>
-
+        <h4>Second instance, passing parameters</h4>
+        <div data-bind='component: {
+            name: "message-editor",
+            params: { initialText: "Hello, world!" }}'></div>
+    </div>
 
     <script type="text/javascript">
         ko.components.register('message-editor', {
             viewModel: function (params) {
                 this.text = ko.observable(params && params.initialText || '');
             },
-            template: 'Message: <input data-bind="value: text" /> ' +
-                '(length: <span data-bind="text: text().length"></span>)'
+            template: `
+                Message: <input data-bind="value: text, valueUpdate: 'afterkeydown'" /> (length: <span data-bind="text: text().length"></span>)
+            `
         });
 
         ko.applyBindings();

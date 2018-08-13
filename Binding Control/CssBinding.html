@@ -19,18 +19,27 @@
             </a>
         </div>
     </div>
-    <div data-bind="css: { profitWarning: currentProfit() < 0 }">
-        Profit Information
+
+    <div class="container">
+        <div data-bind="css: profitStatus">
+            Profit Information
+        </div>
+        <button class="btn btn--info btn--3d" data-bind="click: changeCSS">Change CSS</button>
     </div>
 
-
     <script type="text/javascript">
+
         var viewModel = {
-            currentProfit: ko.observable(150000) // Positive value, so initially we don't apply the "profitWarning" class
+            currentProfit: ko.observable(150000),
         };
+
         viewModel.profitStatus = ko.pureComputed(function () {
             return this.currentProfit() < 0 ? "profitWarning" : "profitPositive";
         }, viewModel);
+
+        viewModel.changeCSS = function() {
+            this.currentProfit(-1);
+        }
 
         ko.applyBindings(viewModel);
     </script>

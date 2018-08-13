@@ -18,15 +18,18 @@
             </a>
         </div>
     </div>
-
     <div class="container">
-        <ul data-bind="foreach: ['cats', 'dogs', 'fish']">
-            <li>The value is
-                <span data-bind="text: $data"></span>
-            </li>
-        </ul>
+        <a data-bind="attr: { href: url, title: details }" class="btn btn--info btn--3d">Report</a>
     </div>
 
+    <script type="text/javascript">
+        var viewModel = {
+            url: ko.observable("https://google.com"),
+            details: ko.observable("Google")
+        };
+
+        ko.applyBindings(viewModel);
+    </script>
 
 </body>
 

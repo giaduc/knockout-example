@@ -238,3 +238,18 @@ table {
 .list__item {
   padding: 5px 15px;
 }
+
+.container {
+  padding: 1.875rem 1.25rem;
+}
+
+.profitWarning {
+  background-color: #001a00;
+  padding: 20px;
+  color: yellow;
+}
+
+.profitPositive {
+  padding: 20px;
+  text-transform: uppercase;
+}

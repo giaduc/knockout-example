@@ -18,24 +18,26 @@
             </a>
         </div>
     </div>
-    <div>
-        You've clicked
-        <span data-bind="text: numberOfClicks"></span> times
-        <button data-bind="click: incrementClickCounter">Click me</button>
+
+    <div class="container">
+        <div>
+            You've clicked
+            <span data-bind="text: numberOfClicks"></span> times
+            <button data-bind="click: incrementClickCounter" class="btn btn--success btn--3d">Click me</button>
+        </div>
     </div>
 
-
     <script type="text/javascript">
-        function viewModel() {
-            this.numberOfClicks = ko.observable(0)
-
+        var viewModel = function() {
+            this.numberOfClicks = ko.observable(0);
+    
             this.incrementClickCounter = function () {
                 var previousCount = this.numberOfClicks();
                 this.numberOfClicks(previousCount + 1);
             }
-        };
+        }; 
 
-        ko.applyBindings(viewModel)
+        ko.applyBindings(viewModel);
     </script>
 </body>
 

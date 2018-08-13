@@ -18,23 +18,27 @@
             </a>
         </div>
     </div>
-    <div data-bind="visible: shouldShowMessage">
-        You will see this message only when "shouldShowMessage" holds a true value.
+    <div class="container">
+        <div data-bind="visible: shouldShowMessage">
+            You will see this message only when "shouldShowMessage" holds a true value.
+        </div>
+        <button data-bind="click: toggle" class="btn btn--info btn--3d">Toggle</button>
     </div>
 
-    <button data-bind="click: clicked()"></button>
 </body>
 <script>
-    function helloWorl() {
-        this.shouldShowMessage = ko.observable(true) // Message initially visible
 
-        this.shouldShowMessage = ko.observable(false) // Message initially visible
-
+    var viewModel = function() {
+        this.shouldShowMessage = ko.observable(true);
+        
+        this.toggle = function() {
+            const isShow = this.shouldShowMessage();
+            this.shouldShowMessage(!isShow);
+        }
     }
 
+    ko.applyBindings(viewModel);
 
-
-    ko.applyBindings(helloWorl)
 </script>
 
 </html>
