@@ -18,18 +18,24 @@
             </a>
         </div>
     </div>
-    <p>
-        Choose some countries you'd like to visit:
-        <select data-bind="options: availableCountries, selectedOptions: chosenCountries" size="5"></select>
-    </p>
+
+    <div class="container">
+        <p>
+            Choose some countries you'd like to visit:
+            <select data-bind="options: availableCountries, selectedOptions: chosenCountries, click: select" size="5">
+            </select>
+        </p>
+    </div>
 
     <script type="text/javascript">
         var viewModel = {
             availableCountries: ko.observableArray(['France', 'Germany', 'Spain']),
-            chosenCountries: ko.observableArray(['Germany']) // Initially, only Germany is selected
+            chosenCountries: ko.observableArray(['Germany']), // Initially, only Germany is selected
+            select: function() {
+                console.log(this.chosenCountries());
+            }
         };
 
-        // ... then later ...
         viewModel.chosenCountries.push('France'); // Now France is selected too
 
         ko.applyBindings(viewModel)

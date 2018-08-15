@@ -27,9 +27,11 @@
     </div>
 
     <script type="text/javascript">
+
         var viewModel = {
+            name: ko.observable(""),
             doSomething: function (formElement) {
-                console.log("dosomething");
+                alert(this.name());
             }
         };
 

@@ -32,10 +32,12 @@
     </div>
 
     <script>
-        ko.applyBindings({
-            userName: ko.observable(""),
+        var viewModel = {
+            userName: ko.observable("textInput binding"),
             userPassword: ko.observable("abc")
-        });
+        }
+
+        ko.applyBindings(viewModel);
     </script>
 
 </body>

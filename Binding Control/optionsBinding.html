@@ -18,18 +18,21 @@
             </a>
         </div>
     </div>
-    <p>
-        Your country:
-        <select data-bind="options: availableCountries,
-                       optionsText: 'countryName',
-                       value: selectedCountry,
-                       optionsCaption: 'Choose...'"></select>
-    </p>
 
-    <div data-bind="visible: selectedCountry">
-        <!-- Appears when you select something -->
-        You have chosen a country with population
-        <span data-bind="text: selectedCountry() ? selectedCountry().countryPopulation : 'unknown'"></span>.
+    <div class="container">
+        <p>
+            Your country:
+            <select data-bind="options: availableCountries,
+                           optionsText: 'countryName',
+                           value: selectedCountry,
+                           optionsCaption: 'Choose...'"></select>
+        </p>
+    
+        <div data-bind="visible: selectedCountry">
+            <!-- Appears when you select something -->
+            You have chosen a country with population
+            <span data-bind="text: selectedCountry() ? selectedCountry().countryPopulation : 'unknown'"></span>.
+        </div>
     </div>
 
     <script type="text/javascript">
